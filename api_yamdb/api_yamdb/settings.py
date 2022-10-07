@@ -1,5 +1,4 @@
 import os
-
 from datetime import timedelta
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -65,7 +64,7 @@ DATABASES = {
         'HOST': os.getenv('DB_HOST', default='localhost:127.0.0.1'),
         'PORT': os.getenv('DB_PORT', default='8000')
     }
-} 
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -99,7 +98,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL = 'users.User'
 

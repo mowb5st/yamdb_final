@@ -4,10 +4,10 @@ import os
 from os.path import exists
 
 from django.core.management.base import BaseCommand
+from reviews.models import Category, Comment, Genre, GenreTitle, Review, Title
+from users.models import User
 
 from api_yamdb.settings import BASE_DIR
-from reviews.models import Category, Title, Genre, Review, Comment, GenreTitle
-from users.models import User
 
 MAPPING = (
     (User, 'users.csv'),
@@ -63,7 +63,7 @@ class Command(BaseCommand):
                         f'to model {model_name.__name__}: {e}'))
                     error_counter += 1
 
-        self.stdout.write(self.style.SUCCESS(
+        return self.stdout.write(self.style.SUCCESS(
             f'Created: {created_counter}   '
             f'Updated: {updated_counter}   '
             f'Errors: {error_counter}'
