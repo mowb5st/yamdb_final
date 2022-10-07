@@ -9,7 +9,7 @@ services:
       - .env
 
   web:
-    image: mowb/api_yamdb
+    image: mowb/yamdb_final
     restart: always
     volumes:
       - static_value:/app/static/
