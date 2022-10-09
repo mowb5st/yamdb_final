@@ -23,7 +23,6 @@ jobs:
     - name: Test with flake8 and pytest
       run: |
         python -m flake8
-        # cd api_yamdb/
         pytest
 
   build_and_push_to_docker_hub:
@@ -44,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: mowb/api_yamdb:latest
+          tags: mowb/yamdb_final:latest
 
   deploy:
       runs-on: ubuntu-latest
