@@ -23,7 +23,6 @@ jobs:
     - name: Test with flake8 and pytest
       run: |
         python -m flake8
-        # cd api_yamdb/
         pytest
 
   build_and_push_to_docker_hub:
@@ -44,6 +43,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
+          context: api_yamdb/
           tags: mowb/yamdb_final:latest
 
   deploy:
@@ -68,22 +68,6 @@ jobs:
               echo DB_HOST=${{ secrets.DB_HOST }} >> .env
               echo DB_PORT=${{ secrets.DB_PORT }} >> .env
               sudo docker-compose up -d
-          
-#  deploy:
-#    runs-on: ubuntu-latest
-#    needs: build_and_push_to_docker_hub
-#    steps:
-#      - name: executing remote ssh commands to deploy
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USER }}
-#          key: ${{ secrets.SSH_KEY }}
-#          passphrase: ${{ secrets.PASSPHRASE }}
-#          script: |
-#            sudo docker pull mowb/yamdb_final:latest
-#            sudo docker stop $(sudo docker ps -a -q)
-#            sudo docker run --rm -d -p 5001:5001 mowb/yamdb_final:latest
 
   send_message:
     runs-on: ubuntu-latest

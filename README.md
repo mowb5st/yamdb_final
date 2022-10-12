@@ -1,5 +1,5 @@
 # Проект YaMDb
-
+Redoc боевого сервера: http://158.160.11.22/redoc/
 [![workflow status](https://github.com/mowb5st/yamdb_final/actions/workflows/yamdb_workflow.yml/badge.svg?event=push)](https://github.com/mowb5st/yamdb_final/actions/workflows/yamdb_workflow.yml)
 # Описание проекта
 Проект собирает отзывы пользователей на произведения. Каждое произведение относится к определенной категории и ему может быть присвоен жанр. Пользователи могут оставлять отзыв и оценку произведению, комментировать отзывы других пользователей.
